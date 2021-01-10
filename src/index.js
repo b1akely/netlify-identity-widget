@@ -1,15 +1,13 @@
-import netlifyIdentity from "./netlify-identity";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+// import registerServiceWorker from './registerServiceWorker';
+import netlifyIdentity from 'netlify-identity-widget';
 
-if (typeof exports !== undefined) {
-  exports.netlifyIdentity = netlifyIdentity;
-}
-if (typeof window !== undefined) {
-  window.netlifyIdentity = netlifyIdentity;
-}
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    netlifyIdentity.init();
-  });
-} else {
-  netlifyIdentity.init();
-}
+window.netlifyIdentity = netlifyIdentity;
+// You must run this once before trying to interact with the widget
+netlifyIdentity.init();
+
+ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
